@@ -8,6 +8,10 @@
     <string name="pref_hide_launcher_icon">pref_hide_launcher_icon</string>
     <string name="pref_choose_theme">pref_choose_theme</string>
 
+    <string name="pref_push_server_enable">pref_push_server_enable</string>
+    <string name="pref_push_server_cp_name">pref_push_server_cp_name</string>
+    <string name="pref_push_server_shuaipush_name">pref_push_server_shuaipush_name</string>
+
     <string name="pref_show_toast">pref_show_toast</string>
     <string name="pref_copy_to_clipboard">pref_copy_to_clipboard</string>
     <string name="pref_block_sms">pref_block_sms</string>

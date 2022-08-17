@@ -14,6 +14,11 @@ public interface PrefConst {
     String KEY_HIDE_LAUNCHER_ICON = "pref_hide_launcher_icon";
     String KEY_CHOOSE_THEME = "pref_choose_theme";
 
+    // push server
+    String KEY_PUSH_SERVER_ENABLE = "pref_push_server_enable";
+    String KEY_PUSH_SERVER_CP_NAME = "pref_push_server_cp_name";
+    String KEY_PUSH_SERVER_SHUAIPUSH_NAME = "pref_push_server_shuaipush_name";
+
     // SMS Code
     String KEY_SHOW_TOAST = "pref_show_toast";
     String KEY_COPY_TO_CLIPBOARD = "pref_copy_to_clipboard";
@@ -59,4 +64,5 @@ public interface PrefConst {
     String KEY_DONATE_BY_ALIPAY = "pref_donate_by_alipay";
     String KEY_PRIVACY_POLICY = "pref_privacy_policy";
     String KEY_PRIVACY_POLICY_ACCEPTED = "pref_privacy_policy_accepted";
+
 }

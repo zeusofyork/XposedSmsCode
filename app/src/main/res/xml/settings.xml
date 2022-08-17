@@ -23,6 +23,30 @@
             android:title="@string/pref_choose_theme_title"/>
     </PreferenceCategory>
 
+    <PreferenceCategory android:title="@string/push_server_config">
+
+        <SwitchPreference
+            android:defaultValue="false"
+            android:dependency="@string/pref_enable"
+            android:icon="@drawable/ic_toast"
+            android:key="@string/pref_push_server_enable"
+            android:title="@string/push_server_enable" />
+        <EditTextPreference
+            android:defaultValue="false"
+            android:dependency="@string/pref_push_server_enable"
+            android:icon="@drawable/ic_log"
+            android:key="@string/pref_push_server_cp_name"
+            android:selectAllOnFocus="false"
+            android:singleLine="false"
+            android:title="@string/push_server_cp_name" />
+        <EditTextPreference
+            android:defaultValue="Default value"
+            android:icon="@drawable/ic_log"
+            android:key="@string/pref_push_server_shuaipush_name"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/push_server_shuaipush_name" />
+    </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/pref_sms_code_title">
 

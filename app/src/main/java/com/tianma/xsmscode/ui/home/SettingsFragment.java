@@ -7,6 +7,7 @@ import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -107,6 +108,10 @@ public class SettingsFragment extends BasePreferenceFragment implements
         findPreference(PrefConst.KEY_HIDE_LAUNCHER_ICON).setOnPreferenceChangeListener(this);
         findPreference(PrefConst.KEY_CHOOSE_THEME).setOnPreferenceClickListener(this);
         // general group end
+
+        // push server group start
+        findPreference(PrefConst.KEY_PUSH_SERVER_CP_URL).setOnPreferenceChangeListener(this);
+        // push server group end
 
         // SMS code group
         EditTextPreference autoInputDelayPref = findPreference(PrefConst.KEY_AUTO_INPUT_CODE_DELAY);
@@ -225,7 +230,9 @@ public class SettingsFragment extends BasePreferenceFragment implements
             onVerboseLogModeSwitched((Boolean) newValue);
         } else if(PrefConst.KEY_AUTO_INPUT_CODE_DELAY.equals(key)) {
             return onAutoInputDelayPrefChanged(preference, newValue);
-        } else {
+        } else if (PrefConst.KEY_PUSH_SERVER_CP_URL.equals(key)) {
+            return onPushServerCpUrlPrefChanged(preference, newValue);
+        }else {
             return false;
         }
         return true;
@@ -336,5 +343,15 @@ public class SettingsFragment extends BasePreferenceFragment implements
         }
         String summary = context.getString(R.string.pref_auto_input_code_delay_summary, value);
         preference.setSummary(summary);
+    }
+
+    private boolean onPushServerCpUrlPrefChanged(Preference preference, Object newValue) {
+        if (newValue instanceof String) {
+            String value = (String) newValue;
+            Toast.makeText(mActivity, R.string.push_server_cp_url_change_toast + "\n" + value, Toast.LENGTH_SHORT).show();
+            return true;
+        } else {
+            return false;
+        }
     }
 }
