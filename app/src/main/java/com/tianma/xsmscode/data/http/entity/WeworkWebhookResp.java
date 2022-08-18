@@ -1,7 +1,7 @@
 package com.tianma.xsmscode.data.http.entity;
 
 
-public class WeWorkWebhookResp {
+public class WeworkWebhookResp {
     private int errcode;
     private String errmsg;
     private String type;

@@ -8,10 +8,13 @@ import retrofit2.http.POST;
 import retrofit2.http.Url;
 
 /**
- * Retrofit Service for WeWork
+ * Retrofit Service for Wework
  */
-public interface WeWorkService {
+public interface WeworkService {
 
     @POST
-    Call<ResponseBody> send(@Url String url, @Body RequestBody body);
+    Call<ResponseBody> sendOfWebhook(@Url String url, @Body RequestBody body);
+
+    @POST
+    Call<ResponseBody> sendOfApp(@Url String url, @Body RequestBody body);
 }

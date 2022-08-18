@@ -108,10 +108,15 @@ public class CodeWorker {
         NotifyAction notifyAction = new NotifyAction(mPluginContext, mPhoneContext, smsMsg, xsp);
         ScheduledFuture<Bundle> notificationFuture = mScheduledExecutor.schedule(notifyAction, 0, TimeUnit.MILLISECONDS);
 
-        // 推送 Action
-        XLog.d("推送 Action");
-        PushAction weWorkPushAction = new PushAction(mPluginContext, mPhoneContext, smsMsg, xsp, PushTypeEnum.WeWork);
-        mScheduledExecutor.schedule(weWorkPushAction, 0, TimeUnit.MILLISECONDS);
+        // 推送 Wechat Webhook Action
+        XLog.d("推送 Wechat Webhook Action");
+        PushAction weworkPushAction = new PushAction(mPluginContext, mPhoneContext, smsMsg, xsp, PushTypeEnum.Wework_Webhook);
+        mScheduledExecutor.schedule(weworkPushAction, 0, TimeUnit.MILLISECONDS);
+
+        // 推送 Wechat App Action
+        XLog.d("推送 Wechat App Action");
+        PushAction weworkAppAction = new PushAction(mPluginContext, mPhoneContext, smsMsg, xsp, PushTypeEnum.Wework_App);
+        mScheduledExecutor.schedule(weworkAppAction, 0, TimeUnit.MILLISECONDS);
 
         // 记录验证码短信 Action
         XLog.d("记录验证码短信 Action");

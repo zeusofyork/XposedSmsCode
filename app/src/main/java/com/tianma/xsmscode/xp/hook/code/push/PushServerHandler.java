@@ -5,7 +5,7 @@ import android.content.Context;
 import com.tianma.xsmscode.common.utils.XLog;
 import com.tianma.xsmscode.data.db.entity.SmsMsg;
 import com.tianma.xsmscode.xp.hook.code.push.impl.WeChatMpPushServerHandler;
-import com.tianma.xsmscode.xp.hook.code.push.impl.WeWorkPushServerHandler;
+import com.tianma.xsmscode.xp.hook.code.push.impl.PushServerWeworkRobotHandler;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -25,7 +25,7 @@ public abstract class PushServerHandler {
         XLog.d("重置handlers map数据");
         handlers.clear();
         handlers.put(PushTypeEnum.WeChat_MP.name(), new WeChatMpPushServerHandler());
-        handlers.put(PushTypeEnum.WeWork.name(), new WeWorkPushServerHandler());
+        handlers.put(PushTypeEnum.Wework_Webhook.name(), new PushServerWeworkRobotHandler());
     }
 
     public static PushServerHandler get(String pushTypeName) {

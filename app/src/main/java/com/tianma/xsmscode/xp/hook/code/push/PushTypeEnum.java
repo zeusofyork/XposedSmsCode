@@ -11,5 +11,9 @@ public enum PushTypeEnum {
     /**
      * 企业微信 webhook
      */
-    WeWork,
+    Wework_Webhook,
+    /**
+     * 企业微信 app
+     */
+    Wework_App,
 }

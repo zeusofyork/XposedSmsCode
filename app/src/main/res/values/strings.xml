@@ -30,8 +30,8 @@
     <!-- preferences server notice start -->
     <string name="push_server_config">Push Sever Config</string>
     <string name="push_server_enable">Push Enable</string>
-    <string name="push_server_cp_name">WeWork Robot</string>
-    <string name="push_server_cp_url_change_toast">WeWork Robot Webhook Url Already Changed To: </string>
+    <string name="push_server_cp_name">Wework Robot</string>
+    <string name="push_server_cp_url_change_toast">Wework Robot Webhook Url Already Changed To: </string>
     <string name="push_server_shuaipush_name">Shuai Push</string>
     <string name="push_server_shuaipush_url_change_toast">Shuai Push Url Already Changed To: </string>
     <!-- preferences server notice end -->

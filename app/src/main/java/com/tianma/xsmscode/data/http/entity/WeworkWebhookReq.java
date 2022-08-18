@@ -2,7 +2,7 @@ package com.tianma.xsmscode.data.http.entity;
 
 import java.util.List;
 
-public class WeWorkWebhookReq {
+public class WeworkWebhookReq {
     private String msgtype;
     private Text text;
     private Markdown markdown;
