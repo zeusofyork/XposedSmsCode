@@ -9,5 +9,6 @@ public class ApiConst {
     public static final String COOLAPK_BASE_URL = "https://www.coolapk.com/";
 
     public static final String WEWORK_BASE_URL = "https://qyapi.weixin.qq.com/";
+    public static final String SHUAI_PUSH_BASE_URL = "https://service.niushuai.cc/";
 
 }

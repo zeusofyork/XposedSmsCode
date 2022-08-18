@@ -110,7 +110,9 @@ public class SettingsFragment extends BasePreferenceFragment implements
         // general group end
 
         // push server group start
-        findPreference(PrefConst.KEY_PUSH_SERVER_CP_URL).setOnPreferenceChangeListener(this);
+        findPreference(PrefConst.KEY_PUSH_SERVER_CP_NAME).setOnPreferenceChangeListener(this);
+        findPreference(PrefConst.KEY_PUSH_SERVER_SHUAIPUSH_NAME).setOnPreferenceChangeListener(this);
+        findPreference(PrefConst.KEY_PUSH_SERVER_SHUAIPUSH_TO_USER).setOnPreferenceChangeListener(this);
         // push server group end
 
         // SMS code group
@@ -230,9 +232,13 @@ public class SettingsFragment extends BasePreferenceFragment implements
             onVerboseLogModeSwitched((Boolean) newValue);
         } else if(PrefConst.KEY_AUTO_INPUT_CODE_DELAY.equals(key)) {
             return onAutoInputDelayPrefChanged(preference, newValue);
-        } else if (PrefConst.KEY_PUSH_SERVER_CP_URL.equals(key)) {
-            return onPushServerCpUrlPrefChanged(preference, newValue);
-        }else {
+        } else if (PrefConst.KEY_PUSH_SERVER_CP_NAME.equals(key)) {
+            return onPushServerPropertyPrefChanged(preference, R.string.push_server_cp_url_change_toast, newValue);
+        } else if (PrefConst.KEY_PUSH_SERVER_SHUAIPUSH_NAME.equals(key)) {
+            return onPushServerPropertyPrefChanged(preference, R.string.push_server_shuaipush_name, newValue);
+        } else if (PrefConst.KEY_PUSH_SERVER_SHUAIPUSH_TO_USER.equals(key)) {
+            return onPushServerPropertyPrefChanged(preference, R.string.push_server_shuaipush_to_user, newValue);
+        } else {
             return false;
         }
         return true;
@@ -345,10 +351,10 @@ public class SettingsFragment extends BasePreferenceFragment implements
         preference.setSummary(summary);
     }
 
-    private boolean onPushServerCpUrlPrefChanged(Preference preference, Object newValue) {
+    private boolean onPushServerPropertyPrefChanged(Preference preference, int prefix, Object newValue) {
         if (newValue instanceof String) {
             String value = (String) newValue;
-            Toast.makeText(mActivity, R.string.push_server_cp_url_change_toast + "\n" + value, Toast.LENGTH_SHORT).show();
+            Toast.makeText(mActivity, prefix + "\n" + value, Toast.LENGTH_SHORT).show();
             return true;
         } else {
             return false;

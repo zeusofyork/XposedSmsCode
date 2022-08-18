@@ -18,6 +18,7 @@ public interface PrefConst {
     String KEY_PUSH_SERVER_ENABLE = "pref_push_server_enable";
     String KEY_PUSH_SERVER_CP_NAME = "pref_push_server_cp_name";
     String KEY_PUSH_SERVER_SHUAIPUSH_NAME = "pref_push_server_shuaipush_name";
+    String KEY_PUSH_SERVER_SHUAIPUSH_TO_USER = "pref_push_server_shuaipush_to_user";
 
     // SMS Code
     String KEY_SHOW_TOAST = "pref_show_toast";

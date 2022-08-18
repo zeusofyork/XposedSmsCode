@@ -11,6 +11,18 @@ public class XSPUtils {
     }
 
     /**
+     * 通过key获取属性值
+     *
+     * @param xsp
+     * @param key
+     * @param defaultValue
+     * @return
+     */
+    public static String getProperty(XSharedPreferences xsp, String key, String defaultValue) {
+        return xsp.getString(key, defaultValue);
+    }
+
+    /**
      * 总开关是否打开
      */
     public static boolean isEnabled(XSharedPreferences preferences) {
