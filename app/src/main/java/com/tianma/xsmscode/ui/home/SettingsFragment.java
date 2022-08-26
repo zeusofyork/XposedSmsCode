@@ -113,6 +113,7 @@ public class SettingsFragment extends BasePreferenceFragment implements
         findPreference(PrefConst.KEY_PUSH_SERVER_CP_NAME).setOnPreferenceChangeListener(this);
         findPreference(PrefConst.KEY_PUSH_SERVER_SHUAIPUSH_NAME).setOnPreferenceChangeListener(this);
         findPreference(PrefConst.KEY_PUSH_SERVER_SHUAIPUSH_TO_USER).setOnPreferenceChangeListener(this);
+        findPreference(PrefConst.KEY_PUSH_SERVER_SHUAIPUSH_MESSAGE_TYPE).setOnPreferenceChangeListener(this);
         // push server group end
 
         // SMS code group
@@ -238,6 +239,8 @@ public class SettingsFragment extends BasePreferenceFragment implements
             return onPushServerPropertyPrefChanged(preference, R.string.push_server_shuaipush_name, newValue);
         } else if (PrefConst.KEY_PUSH_SERVER_SHUAIPUSH_TO_USER.equals(key)) {
             return onPushServerPropertyPrefChanged(preference, R.string.push_server_shuaipush_to_user, newValue);
+        } else if (PrefConst.KEY_PUSH_SERVER_SHUAIPUSH_MESSAGE_TYPE.equals(key)) {
+            return onPushServerPropertyPrefChanged(preference, R.string.push_server_shuaipush_message_type, newValue);
         } else {
             return false;
         }

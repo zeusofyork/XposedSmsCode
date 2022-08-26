@@ -35,6 +35,8 @@
     <string name="push_server_shuaipush_name">Shuai Push</string>
     <string name="push_server_shuaipush_url_change_toast">Shuai Push Url Already Changed To: </string>
     <string name="push_server_shuaipush_to_user">To User: </string>
+    <string name="push_server_shuaipush_message_type">Message Type: </string>
+    <string name="push_server_shuaipush_platform">Platform: </string>
     <!-- preferences server notice end -->
 
     <!-- preferences sms code -->

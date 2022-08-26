@@ -44,7 +44,9 @@ public class PushServerWeworkAppHandler extends PushServerHandler {
         String url = super.getPushServerUrl(xsp, PrefConst.KEY_PUSH_SERVER_SHUAIPUSH_NAME, ApiConst.SHUAI_PUSH_BASE_URL);
 
         ShuaiPushMessageReq messageReq = getShuaiPushMessageReq(
-                XSPUtils.getProperty(xsp,PrefConst.KEY_PUSH_SERVER_SHUAIPUSH_TO_USER, "@all"), mSmsMsg);
+                XSPUtils.getProperty(xsp, PrefConst.KEY_PUSH_SERVER_SHUAIPUSH_TO_USER, "@all"),
+                XSPUtils.getProperty(xsp, PrefConst.KEY_PUSH_SERVER_SHUAIPUSH_MESSAGE_TYPE, "text"),
+                mSmsMsg);
 
         String content = GsonUtil.toJson(messageReq);
 
@@ -58,10 +60,10 @@ public class PushServerWeworkAppHandler extends PushServerHandler {
         XLog.d("PushServerWeworkAppHandler#response: %s", GsonUtil.toJson(bodyResponse));
     }
 
-    private ShuaiPushMessageReq getShuaiPushMessageReq(String toUser, SmsMsg mSmsMsg) {
+    private ShuaiPushMessageReq getShuaiPushMessageReq(String toUser, String messageType, SmsMsg mSmsMsg) {
         ShuaiPushMessageReq messageReq = new ShuaiPushMessageReq();
-        messageReq.setPlatform("Wework");
-        messageReq.setMessageType("markdown");
+        messageReq.setPlatform(null);
+        messageReq.setMessageType(messageType);
         messageReq.setToUser(toUser);
         String message = "验证码通知: <font color=\"warning\">" + mSmsMsg.getSmsCode() + "</font>" +
                 "\n 发送号码: <font color=\"comment\">" + mSmsMsg.getSender() + "</font>" +

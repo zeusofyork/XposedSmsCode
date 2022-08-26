@@ -12,6 +12,7 @@
     <string name="pref_push_server_cp_name">pref_push_server_cp_name</string>
     <string name="pref_push_server_shuaipush_name">pref_push_server_shuaipush_name</string>
     <string name="pref_push_server_shuaipush_to_user">pref_push_server_shuaipush_to_user</string>
+    <string name="pref_push_server_shuaipush_message_type">pref_push_server_shuaipush_message_type</string>
 
     <string name="pref_show_toast">pref_show_toast</string>
     <string name="pref_copy_to_clipboard">pref_copy_to_clipboard</string>
