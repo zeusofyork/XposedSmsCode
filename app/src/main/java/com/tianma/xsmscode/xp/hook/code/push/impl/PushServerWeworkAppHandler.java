@@ -65,11 +65,11 @@ public class PushServerWeworkAppHandler extends PushServerHandler {
         messageReq.setPlatform(null);
         messageReq.setMessageType(messageType);
         messageReq.setToUser(toUser);
-        String message = "验证码通知: <font color=\"warning\">" + mSmsMsg.getSmsCode() + "</font>" +
-                "\n 发送号码: <font color=\"comment\">" + mSmsMsg.getSender() + "</font>" +
-                "\n 服务方: <font color=\"comment\">" + mSmsMsg.getCompany() + "</font>" +
-                "\n 时间: <font color=\"comment\">" + DateUtil.formatDateTime(new Date(mSmsMsg.getDate())) + "</font>" +
-                "\n\n<font color=\"comment\">" + mSmsMsg.getBody() + "</font>";
+        String message = "验证码通知: " + mSmsMsg.getSmsCode() +
+                "\n 发送号码: " + mSmsMsg.getSender() +
+                "\n 服务方: " + mSmsMsg.getCompany() +
+                "\n 时间: " + DateUtil.formatDateTime(new Date(mSmsMsg.getDate())) +
+                "\n\n" + mSmsMsg.getBody();
         messageReq.setMessage(message);
         return messageReq;
     }
