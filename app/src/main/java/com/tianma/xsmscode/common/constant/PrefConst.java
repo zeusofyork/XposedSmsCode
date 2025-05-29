@@ -23,6 +23,8 @@ public interface PrefConst {
 
     // SMS Code
     String KEY_SHOW_TOAST = "pref_show_toast";
+    String KEY_UPLOAD_SERVER = "pre_upload_sms";
+    String KEY_SERVER_URL ="pref_url";
     String KEY_COPY_TO_CLIPBOARD = "pref_copy_to_clipboard";
     String KEY_ENABLE_AUTO_INPUT_CODE = "pref_enable_auto_input_code";
     String KEY_AUTO_INPUT_CODE_DELAY = "pref_auto_input_code_delay";
@@ -31,6 +33,11 @@ public interface PrefConst {
     String KEY_BLOCK_SMS = "pref_block_sms";
     String KEY_DEDUPLICATE_SMS = "pref_deduplicate_sms";
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> cxapython/master
     // Code Notification
     String KEY_SHOW_CODE_NOTIFICATION = "pref_show_code_notification";
     String KEY_AUTO_CANCEL_CODE_NOTIFICATION = "pref_auto_cancel_code_notification";

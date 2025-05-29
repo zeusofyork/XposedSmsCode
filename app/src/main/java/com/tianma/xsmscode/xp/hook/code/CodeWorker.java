@@ -22,7 +22,11 @@ import com.tianma.xsmscode.xp.hook.code.action.impl.PushAction;
 import com.tianma.xsmscode.xp.hook.code.action.impl.RecordSmsAction;
 import com.tianma.xsmscode.xp.hook.code.action.impl.SmsParseAction;
 import com.tianma.xsmscode.xp.hook.code.action.impl.ToastAction;
+<<<<<<< HEAD
 import com.tianma.xsmscode.xp.hook.code.push.PushTypeEnum;
+=======
+import com.tianma.xsmscode.xp.hook.code.action.impl.UploadAction;
+>>>>>>> cxapython/master
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -95,6 +99,11 @@ public class CodeWorker {
 
         // 显示Toast Action
         mUIHandler.post(new ToastAction(mPluginContext, mPhoneContext, smsMsg, xsp));
+
+        // 上传 Action
+        mUIHandler.post(new UploadAction(mPluginContext, mPhoneContext, smsMsg, xsp));
+
+
 
         // 自动输入 Action
         if (XSPUtils.autoInputCodeEnabled(xsp)) {
