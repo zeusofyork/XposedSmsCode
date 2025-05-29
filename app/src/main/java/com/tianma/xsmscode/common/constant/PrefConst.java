@@ -14,6 +14,13 @@ public interface PrefConst {
     String KEY_HIDE_LAUNCHER_ICON = "pref_hide_launcher_icon";
     String KEY_CHOOSE_THEME = "pref_choose_theme";
 
+    // push server
+    String KEY_PUSH_SERVER_ENABLE = "pref_push_server_enable";
+    String KEY_PUSH_SERVER_CP_NAME = "pref_push_server_cp_name";
+    String KEY_PUSH_SERVER_SHUAIPUSH_NAME = "pref_push_server_shuaipush_name";
+    String KEY_PUSH_SERVER_SHUAIPUSH_TO_USER = "pref_push_server_shuaipush_to_user";
+    String KEY_PUSH_SERVER_SHUAIPUSH_MESSAGE_TYPE = "pref_push_server_shuaipush_message_type";
+
     // SMS Code
     String KEY_SHOW_TOAST = "pref_show_toast";
     String KEY_COPY_TO_CLIPBOARD = "pref_copy_to_clipboard";
@@ -24,13 +31,11 @@ public interface PrefConst {
     String KEY_BLOCK_SMS = "pref_block_sms";
     String KEY_DEDUPLICATE_SMS = "pref_deduplicate_sms";
 
-
     // Code Notification
     String KEY_SHOW_CODE_NOTIFICATION = "pref_show_code_notification";
     String KEY_AUTO_CANCEL_CODE_NOTIFICATION = "pref_auto_cancel_code_notification";
     String KEY_NOTIFICATION_RETENTION_TIME = "pref_notification_retention_time";
     String NOTIFICATION_RETENTION_TIME_DEFAULT = "5";
-
 
     // Code Record
     String KEY_ENABLE_CODE_RECORDS = "pref_enable_code_records";
@@ -59,4 +64,5 @@ public interface PrefConst {
     String KEY_DONATE_BY_ALIPAY = "pref_donate_by_alipay";
     String KEY_PRIVACY_POLICY = "pref_privacy_policy";
     String KEY_PRIVACY_POLICY_ACCEPTED = "pref_privacy_policy_accepted";
+
 }

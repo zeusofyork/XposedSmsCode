@@ -11,6 +11,18 @@ public class XSPUtils {
     }
 
     /**
+     * 通过key获取属性值
+     *
+     * @param xsp
+     * @param key
+     * @param defaultValue
+     * @return
+     */
+    public static String getProperty(XSharedPreferences xsp, String key, String defaultValue) {
+        return xsp.getString(key, defaultValue);
+    }
+
+    /**
      * 总开关是否打开
      */
     public static boolean isEnabled(XSharedPreferences preferences) {
@@ -22,6 +34,27 @@ public class XSPUtils {
      */
     public static boolean isVerboseLogMode(XSharedPreferences preferences) {
         return preferences.getBoolean(PrefConst.KEY_VERBOSE_LOG_MODE, false);
+    }
+
+    /**
+     * 推送开关是否开启
+     */
+    public static boolean pushEnable(XSharedPreferences preferences) {
+        return preferences.getBoolean(PrefConst.KEY_PUSH_SERVER_ENABLE, false);
+    }
+
+    /**
+     * 企业微信推送地址
+     */
+    public static String pushServerCpName(XSharedPreferences preferences) {
+        return preferences.getString(PrefConst.KEY_PUSH_SERVER_CP_NAME, null);
+    }
+
+    /**
+     * Shuai Push 推送地址
+     */
+    public static String pushServerCpShuaiPushName(XSharedPreferences preferences) {
+        return preferences.getString(PrefConst.KEY_PUSH_SERVER_SHUAIPUSH_NAME, null);
     }
 
     /**

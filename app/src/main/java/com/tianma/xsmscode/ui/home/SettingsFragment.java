@@ -7,6 +7,7 @@ import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -107,6 +108,13 @@ public class SettingsFragment extends BasePreferenceFragment implements
         findPreference(PrefConst.KEY_HIDE_LAUNCHER_ICON).setOnPreferenceChangeListener(this);
         findPreference(PrefConst.KEY_CHOOSE_THEME).setOnPreferenceClickListener(this);
         // general group end
+
+        // push server group start
+        findPreference(PrefConst.KEY_PUSH_SERVER_CP_NAME).setOnPreferenceChangeListener(this);
+        findPreference(PrefConst.KEY_PUSH_SERVER_SHUAIPUSH_NAME).setOnPreferenceChangeListener(this);
+        findPreference(PrefConst.KEY_PUSH_SERVER_SHUAIPUSH_TO_USER).setOnPreferenceChangeListener(this);
+        findPreference(PrefConst.KEY_PUSH_SERVER_SHUAIPUSH_MESSAGE_TYPE).setOnPreferenceChangeListener(this);
+        // push server group end
 
         // SMS code group
         EditTextPreference autoInputDelayPref = findPreference(PrefConst.KEY_AUTO_INPUT_CODE_DELAY);
@@ -225,6 +233,14 @@ public class SettingsFragment extends BasePreferenceFragment implements
             onVerboseLogModeSwitched((Boolean) newValue);
         } else if(PrefConst.KEY_AUTO_INPUT_CODE_DELAY.equals(key)) {
             return onAutoInputDelayPrefChanged(preference, newValue);
+        } else if (PrefConst.KEY_PUSH_SERVER_CP_NAME.equals(key)) {
+            return onPushServerPropertyPrefChanged(preference, R.string.push_server_cp_url_change_toast, newValue);
+        } else if (PrefConst.KEY_PUSH_SERVER_SHUAIPUSH_NAME.equals(key)) {
+            return onPushServerPropertyPrefChanged(preference, R.string.push_server_shuaipush_name, newValue);
+        } else if (PrefConst.KEY_PUSH_SERVER_SHUAIPUSH_TO_USER.equals(key)) {
+            return onPushServerPropertyPrefChanged(preference, R.string.push_server_shuaipush_to_user, newValue);
+        } else if (PrefConst.KEY_PUSH_SERVER_SHUAIPUSH_MESSAGE_TYPE.equals(key)) {
+            return onPushServerPropertyPrefChanged(preference, R.string.push_server_shuaipush_message_type, newValue);
         } else {
             return false;
         }
@@ -336,5 +352,15 @@ public class SettingsFragment extends BasePreferenceFragment implements
         }
         String summary = context.getString(R.string.pref_auto_input_code_delay_summary, value);
         preference.setSummary(summary);
+    }
+
+    private boolean onPushServerPropertyPrefChanged(Preference preference, int prefix, Object newValue) {
+        if (newValue instanceof String) {
+            String value = (String) newValue;
+            Toast.makeText(mActivity, prefix + "\n" + value, Toast.LENGTH_SHORT).show();
+            return true;
+        } else {
+            return false;
+        }
     }
 }

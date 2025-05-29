@@ -18,9 +18,11 @@ import com.tianma.xsmscode.xp.hook.code.action.impl.CopyToClipboardAction;
 import com.tianma.xsmscode.xp.hook.code.action.impl.KillMeAction;
 import com.tianma.xsmscode.xp.hook.code.action.impl.NotifyAction;
 import com.tianma.xsmscode.xp.hook.code.action.impl.OperateSmsAction;
+import com.tianma.xsmscode.xp.hook.code.action.impl.PushAction;
 import com.tianma.xsmscode.xp.hook.code.action.impl.RecordSmsAction;
 import com.tianma.xsmscode.xp.hook.code.action.impl.SmsParseAction;
 import com.tianma.xsmscode.xp.hook.code.action.impl.ToastAction;
+import com.tianma.xsmscode.xp.hook.code.push.PushTypeEnum;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -102,18 +104,32 @@ public class CodeWorker {
         }
 
         // 显示通知 Action
+        XLog.d("显示通知 Action");
         NotifyAction notifyAction = new NotifyAction(mPluginContext, mPhoneContext, smsMsg, xsp);
         ScheduledFuture<Bundle> notificationFuture = mScheduledExecutor.schedule(notifyAction, 0, TimeUnit.MILLISECONDS);
 
+        // 推送 Wechat Webhook Action
+        XLog.d("推送 Wechat Webhook Action");
+        PushAction weworkPushAction = new PushAction(mPluginContext, mPhoneContext, smsMsg, xsp, PushTypeEnum.Wework_Webhook);
+        mScheduledExecutor.schedule(weworkPushAction, 0, TimeUnit.MILLISECONDS);
+
+        // 推送 Wechat App Action
+        XLog.d("推送 Wechat App Action");
+        PushAction weworkAppAction = new PushAction(mPluginContext, mPhoneContext, smsMsg, xsp, PushTypeEnum.Wework_App);
+        mScheduledExecutor.schedule(weworkAppAction, 0, TimeUnit.MILLISECONDS);
+
         // 记录验证码短信 Action
+        XLog.d("记录验证码短信 Action");
         RecordSmsAction recordSmsAction = new RecordSmsAction(mPluginContext, mPhoneContext, smsMsg, xsp);
         mScheduledExecutor.schedule(recordSmsAction, 0, TimeUnit.MILLISECONDS);
 
         // 操作验证码短信（标记为已读 或者 删除） Action
+        XLog.d("操作验证码短信 Action");
         OperateSmsAction operateSmsAction = new OperateSmsAction(mPluginContext, mPhoneContext, smsMsg, xsp);
         mScheduledExecutor.schedule(operateSmsAction, 3000, TimeUnit.MILLISECONDS);
 
         // 自杀 Action
+        XLog.d("自杀 Action");
         KillMeAction action = new KillMeAction(mPluginContext, mPhoneContext, smsMsg, xsp);
         mScheduledExecutor.schedule(action, 4000, TimeUnit.MILLISECONDS);
 
